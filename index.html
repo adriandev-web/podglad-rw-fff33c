@@ -348,6 +348,21 @@ b,strong{font-weight:400;color:var(--ink)}
   .hero__visual{min-height:0;align-self:stretch}
   .eskala{left:-4%;bottom:4%;width:250px}
 }
+/* mobile: nizsze hero (17.11) */
+@media (max-width:959px){
+  .hero{padding-top:20px;padding-bottom:0}
+  .hero__grid{gap:20px}
+  .hero .rating{margin-bottom:14px}
+  .hero .price-tag{margin-top:14px}
+  .hero__sub{margin-top:12px}
+  .hero__btns{margin-top:20px;gap:10px}
+  .hero__stats{margin-top:18px;padding:10px 12px}
+  .hero__visual{min-height:clamp(270px,74vw,440px)}
+  .eskala{width:min(170px,44vw);padding:10px 12px 12px;bottom:12px}
+  .eskala__t{font-size:11px;margin-bottom:7px}
+  .eskala__b,.eskala__m{height:16px;font-size:10px}
+  .eskala__r + .eskala__r{margin-top:3px}
+}
 @media (prefers-reduced-motion:no-preference){
   .eskala{animation:eskala-in .7s .35s both cubic-bezier(.2,.7,.2,1)}
   @keyframes eskala-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
@@ -736,7 +751,7 @@ b,strong{font-weight:400;color:var(--ink)}
           <div><span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><span>Prawie 900 opinii w&nbsp;Google<span class="js-rating" hidden></span></span><a href="https://g.page/r/CWogD5_7JiQrEAE" target="_blank" rel="noopener">Zobacz opinie w&nbsp;Google</a></div>
         </div>
       </div>
-      <!-- Opinie: tylko prawdziwe z Google. Kolejne dopisywać jako <figure class="rv"> (do ok. 30), zwijanie działa samo. -->
+      <!-- Opinie: tylko prawdziwe z Google. Zostawione 12 pierwszych (17.11), zwijanie działa samo. -->
       <div class="revs-wrap is-collapsed" id="revsWrap">
         <div class="revs" id="revs">
         <figure class="rv"><div class="rv__top"><span class="stars" role="img" aria-label="5 na 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="gico" role="img" aria-label="Opinia z Google"><use href="#i-google"/></svg></div><p>Z całego serca polecam tę firmę! Pełen profesjonalizm, świetny kontakt z&nbsp;klientem i&nbsp;bardzo miła obsługa. Świadectwo energetyczne wykonane szybko, sprawnie i&nbsp;bezproblemowo, a&nbsp;co najważniejsze, bez konieczności wychodzenia z&nbsp;domu!</p><footer><span class="av">MM</span>Małgorzata M.</footer></figure>
@@ -751,14 +766,6 @@ b,strong{font-weight:400;color:var(--ink)}
         <figure class="rv"><div class="rv__top"><span class="stars" role="img" aria-label="5 na 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="gico" role="img" aria-label="Opinia z Google"><use href="#i-google"/></svg></div><p>Szybko, profesjonalnie i&nbsp;uczciwie. Okazało się, że budynek według przepisów nie wymaga świadectwa, ale bez problemu otrzymałam oświadczenie, dzięki czemu dokumentacja wymagana przez bank była pełna. Dziękuję i&nbsp;będę polecać!</p><footer><span class="av">KW</span>Katarzyna W.</footer></figure>
         <figure class="rv"><div class="rv__top"><span class="stars" role="img" aria-label="5 na 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="gico" role="img" aria-label="Opinia z Google"><use href="#i-google"/></svg></div><p>Bardzo polecam wykonanie świadectwa w&nbsp;RW Projekt. Robiłam 3, wszystkie na szybko, także jestem zadowolona i&nbsp;bardzo dziękuję za szybką realizację.</p><footer><span class="av">MK</span>Magdalena K.</footer></figure>
         <figure class="rv"><div class="rv__top"><span class="stars" role="img" aria-label="5 na 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="gico" role="img" aria-label="Opinia z Google"><use href="#i-google"/></svg></div><p>Bardzo dobry kontakt z&nbsp;firmą i&nbsp;profesjonalne podejście do zamówienia. Świadectwo energetyczne wykonane zgodnie z&nbsp;oczekiwaniami oraz w&nbsp;szybkim terminie. Polecam serdecznie.</p><footer><span class="av">DK</span>Daniel K.</footer></figure>
-        <figure class="rv"><div class="rv__top"><span class="stars" role="img" aria-label="5 na 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="gico" role="img" aria-label="Opinia z Google"><use href="#i-google"/></svg></div><p>Świetna robota, szybko, sprawnie i&nbsp;dokładnie. Nawet trudne przypadki nie stanowią problemu. Profesjonalne podejście do swojej pracy i&nbsp;klienta. Polecam.</p><footer><span class="av">K</span>karrol81</footer></figure>
-        <figure class="rv"><div class="rv__top"><span class="stars" role="img" aria-label="5 na 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="gico" role="img" aria-label="Opinia z Google"><use href="#i-google"/></svg></div><p>Bardzo polecam, dobry i&nbsp;szybki kontakt, charakterystyka wykonana w&nbsp;terminie i&nbsp;z&nbsp;pełną dokładnością. Konkurencyjne ceny i&nbsp;świetna współpraca. Jeśli będzie potrzeba, na pewno wrócę.</p><footer><span class="av">KP</span>Kamila P.</footer></figure>
-        <figure class="rv"><div class="rv__top"><span class="stars" role="img" aria-label="5 na 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="gico" role="img" aria-label="Opinia z Google"><use href="#i-google"/></svg></div><p>Wszystko ok. Łatwy kontakt, paszport energetyczny mieszkania zrobiony bez jakiegokolwiek biegania. Polecam!</p><footer><span class="av">JK</span>Justyna K.</footer></figure>
-        <figure class="rv"><div class="rv__top"><span class="stars" role="img" aria-label="5 na 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="gico" role="img" aria-label="Opinia z Google"><use href="#i-google"/></svg></div><p>Przygotowanie i&nbsp;wykonanie świadectwa jak należy, kontakt z&nbsp;wykonawcami bardzo dobry. Szybko i&nbsp;sprawnie, gorąco polecam!</p><footer><span class="av">AT</span>Aneta T.</footer></figure>
-        <figure class="rv"><div class="rv__top"><span class="stars" role="img" aria-label="5 na 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="gico" role="img" aria-label="Opinia z Google"><use href="#i-google"/></svg></div><p>Miła, profesjonalna obsługa i&nbsp;szybka realizacja zlecenia. Polecam.</p><footer><span class="av">AO</span>Agata O.</footer></figure>
-        <figure class="rv"><div class="rv__top"><span class="stars" role="img" aria-label="5 na 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="gico" role="img" aria-label="Opinia z Google"><use href="#i-google"/></svg></div><p>Profesjonalnie, szybko, bez problemów. Bardzo dobry kontakt. Parking dla klientów. Polecam zdecydowanie!</p><footer><span class="av">MD</span>Mariusz D.</footer></figure>
-        <figure class="rv"><div class="rv__top"><span class="stars" role="img" aria-label="5 na 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="gico" role="img" aria-label="Opinia z Google"><use href="#i-google"/></svg></div><p>Bardzo solidna firma. Podziękowania dla Pani Ani za miłą obsługę i&nbsp;profesjonalizm.</p><footer><span class="av">MB</span>Maria B.</footer></figure>
-        <figure class="rv"><div class="rv__top"><span class="stars" role="img" aria-label="5 na 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="gico" role="img" aria-label="Opinia z Google"><use href="#i-google"/></svg></div><p>Profesjonalna obsługa, szybka realizacja. Polecam.</p><footer><span class="av">KP</span>Katarzyna P.</footer></figure>
         </div>
       </div>
       <div class="revs-more"><button class="btn btn--ghost" type="button" id="revsBtn" aria-controls="revs" aria-expanded="false">Zobacz więcej opinii</button></div>
