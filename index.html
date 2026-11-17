@@ -11,7 +11,8 @@
 <link rel="icon" href="img/logo.jpg">
 <link rel="preload" href="fonts/ttlakes-ext-medium.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="fonts/eurostile.woff" as="font" type="font/woff" crossorigin>
-<link rel="preload" as="image" href="img/hero-dom-3d.webp" media="(min-width:960px)" fetchpriority="high">
+<link rel="preload" as="image" imagesrcset="img/hero-tlo-1280.webp 1280w, img/hero-tlo-1920.webp 1920w, img/hero-tlo-2560.webp 2560w" imagesizes="100vw" media="(min-width:960px)" fetchpriority="high">
+<link rel="preload" as="image" imagesrcset="img/hero-tlo-m-600.webp 600w, img/hero-tlo-m-900.webp 900w" imagesizes="100vw" media="(max-width:959px)" fetchpriority="high">
 
 <!-- Google Tag Manager: startuje po zdarzeniu load (nie czeka na interakcję jak WP Rocket Delay JS),
      więc pageview liczy się każdemu, kto został ok. 1-2 s, a skrypty Google nie konkurują z treścią. -->
@@ -19,7 +20,7 @@
 /* Consent Mode v2: domyślnie brak zgody, dopóki baner (Midero) nie wyśle consent update */
 gtag('consent','default',{ad_storage:'denied',analytics_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});
 window.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});
-window.addEventListener('load',function(){setTimeout(function(){var j=document.createElement('script');j.async=true;/* GTM wylaczony w podgladzie */},300);});</script>
+window.addEventListener('load',function(){setTimeout(function(){var j=document.createElement('script');j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id=GTM-57W8V9WW';document.head.appendChild(j);},300);});</script>
 
 <style>
 @font-face{font-family:"TTLakes";font-style:normal;font-weight:400 700;font-display:swap;src:url(fonts/ttlakes-ext-medium.woff) format("woff")}
@@ -320,15 +321,37 @@ b,strong{font-weight:400;color:var(--ink)}
 @media (max-width:420px){.brand .brand__logo{width:140px}}
 .hdr{border-bottom:3px solid var(--green)}
 .hdr__phone{color:var(--green);font-family:var(--fh);font-size:14px}
-.hero{background:linear-gradient(180deg,#fff 0%,var(--soft) 100%)}
+/* hero: dom w chmurach na calej szerokosci (tlo z Envato, 17.11) */
+.hero{background:#fff;isolation:isolate}
+.hero__bg{position:absolute;inset:0;z-index:-2;isolation:isolate}
+.hero__bg img{width:100%;height:100%;object-fit:cover;object-position:center bottom}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,.25) 45%,rgba(255,255,255,0) 60%)}
 .hero h1 .accent{color:var(--green)}
 .hero__sub{margin-top:18px;color:var(--ink-2);font-size:clamp(16px,.4vw + 15px,18px);max-width:46ch}
-.hero__visual{display:block}
-.hero__visual img{width:100%;height:auto;max-width:620px;margin:0 auto;mix-blend-mode:multiply}
-.hero__stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:520px;margin:8px auto 0;padding-top:16px;border-top:1px solid var(--line)}
+.hero__visual{display:block;min-height:clamp(380px,118vw,560px);position:relative}
+.hero__stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:520px;margin:28px 0 0;padding:14px 16px;border-radius:12px;background:rgba(255,255,255,.82);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 .hero__stats b{display:block;font-size:clamp(18px,1vw + 12px,24px);color:var(--green)}
 .hero__stats span{font-size:13px;color:var(--muted)}
-@media (max-width:959px){.hero__visual img{max-width:420px}}
+.eskala{position:absolute;left:0;bottom:0;width:min(210px,52vw);background:rgba(255,255,255,.94);border-radius:12px;box-shadow:0 18px 40px rgba(20,40,70,.18);padding:14px 16px 16px}
+.eskala__t{margin:0 0 10px;font-family:var(--fh);font-size:13px;color:var(--ink)}
+.eskala__r{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.eskala__r + .eskala__r{margin-top:5px}
+.eskala__b{display:flex;align-items:center;height:22px;width:calc(38% + var(--n) * 9%);padding-left:9px;background:var(--c);color:#fff;font-family:var(--fh);font-size:12px;border-radius:3px 0 0 3px;clip-path:polygon(0 0,calc(100% - 11px) 0,100% 50%,calc(100% - 11px) 100%,0 100%)}
+.eskala__b--d{color:var(--ink)}
+.eskala__m{display:flex;align-items:center;justify-content:center;height:22px;width:34px;background:var(--ink);color:#fff;font-family:var(--fh);font-size:12px;clip-path:polygon(9px 0,100% 0,100% 100%,9px 100%,0 50%)}
+@media (min-width:960px){
+  .hero{min-height:clamp(600px,44vw,780px);display:flex;align-items:center}
+  .hero > .wrap{width:100%}
+  .hero__bg img{object-position:68% 55%}
+  /* biel z lewego dolnego rogu lukiem do ok. polowy szerokosci (zaznaczenie Adriana 17.11) */
+  .hero::before{background:radial-gradient(ellipse 68% 160% at 0% 100%,#fff 0%,rgba(255,255,255,.9) 50%,rgba(255,255,255,.84) 74%,rgba(255,255,255,0) 100%)}
+  .hero__visual{min-height:0;align-self:stretch}
+  .eskala{left:-4%;bottom:4%;width:250px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .eskala{animation:eskala-in .7s .35s both cubic-bezier(.2,.7,.2,1)}
+  @keyframes eskala-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+}
 .rating{background:#fff;border:1px solid var(--line)}
 .promo,.pc .pc__badge{background:var(--yellow-b);color:var(--ink);font-weight:500}
 .price-tag strong{font-weight:500}
@@ -342,6 +365,12 @@ b,strong{font-weight:400;color:var(--ink)}
 .pc > *:not(.pc__img):not(.pc__badge){margin-left:26px;margin-right:26px}
 .pc h3{margin-top:22px;text-transform:uppercase}
 .pc__img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
+/* delikatna maska w bordo strony na zdjeciach (17.11) */
+.pc__tint{display:block;position:relative;overflow:hidden}
+.pc__tint img{width:100%;height:100%;object-fit:cover;display:block}
+/* zdjecia szaro-biale, kolor daje tylko interfejs (17.11) */
+.hero__bg img{filter:saturate(var(--foto-sat,.65)) brightness(1.03) contrast(.97)}
+.pc__label{position:absolute;left:5%;bottom:5%;width:44%;max-width:240px;aspect-ratio:1;filter:drop-shadow(0 8px 18px rgba(20,30,40,.22))}
 .pc--hl{border:2px solid var(--green)}
 .pc .pc__badge{top:16px;left:auto;right:16px;z-index:1}
 .wc h3{text-transform:uppercase}
@@ -364,6 +393,14 @@ b,strong{font-weight:400;color:var(--ink)}
 .topbar{background:var(--green);color:#fff;font-family:var(--fh);font-size:clamp(12px,.3vw + 11px,14px);text-align:center;padding:9px 0;line-height:1.35}
 .topbar b{color:inherit;font-weight:500;white-space:nowrap;-webkit-text-stroke:.6px currentColor;paint-order:stroke fill}
 .rating{margin-bottom:22px}
+/* telefon: G + gwiazdki + 5,0/5, pod spodem liczba opinii (17.11) */
+.rating__avg{display:none}
+@media (max-width:599px){
+  .rating{display:inline-grid;grid-template-columns:auto auto auto;justify-content:start;align-items:center;column-gap:8px;row-gap:4px;border-radius:14px;padding:10px 14px}
+  .rating__avg:not([hidden]){display:inline;font-family:var(--fh);font-size:15px;color:var(--ink)}
+  .rating__txt{grid-column:1 / -1}
+  .rating__txt .js-rating{display:none}
+}
 .rv{margin:0}
 .revs-wrap{position:relative}
 .revs-wrap.is-collapsed{max-height:440px;overflow:hidden}
@@ -435,11 +472,17 @@ b,strong{font-weight:400;color:var(--ink)}
 </style>
 </head>
 <body>
-
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-57W8V9WW" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
   <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-etykieta" viewBox="0 0 196 196">
+    <defs><linearGradient id="g-etyk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#00964a"/><stop offset=".5" stop-color="#ffde00"/><stop offset="1" stop-color="#e11e23"/></linearGradient></defs>
+    <g fill="#fff" stroke="#fff" stroke-width="16" stroke-linejoin="round" stroke-linecap="round"><path d="M70 186 H14 V78 L62 30 L84 52 V186 Z"/><polygon points="70,44 110,44 118,52 110,60 70,60"/><polygon points="70,64 121,64 129,72 121,80 70,80"/><polygon points="70,84 132,84 140,92 132,100 70,100"/><polygon points="70,104 143,104 151,112 143,120 70,120"/><polygon points="70,124 154,124 162,132 154,140 70,140"/><polygon points="70,144 165,144 173,152 165,160 70,160"/><polygon points="70,164 176,164 184,172 176,180 70,180"/></g>
+    <path d="M70 186 H14 V78 L62 30 L84 52" fill="none" stroke="url(#g-etyk)" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <g font-family="TTLakes,Arial,sans-serif" font-size="11.5"><polygon points="70,44 110,44 118,52 110,60 70,60" fill="#00964a"/><text x="76" y="56.5" fill="#fff">A</text><polygon points="70,64 121,64 129,72 121,80 70,80" fill="#50af32"/><text x="76" y="76.5" fill="#fff">B</text><polygon points="70,84 132,84 140,92 132,100 70,100" fill="#bed228"/><text x="76" y="96.5" fill="#2b2d35">C</text><polygon points="70,104 143,104 151,112 143,120 70,120" fill="#ffde00"/><text x="76" y="116.5" fill="#2b2d35">D</text><polygon points="70,124 154,124 162,132 154,140 70,140" fill="#faaf19"/><text x="76" y="136.5" fill="#2b2d35">E</text><polygon points="70,144 165,144 173,152 165,160 70,160" fill="#f0691e"/><text x="76" y="156.5" fill="#fff">F</text><polygon points="70,164 176,164 184,172 176,180 70,180" fill="#e11e23"/><text x="76" y="176.5" fill="#fff">G</text></g>
+  </symbol>
   <symbol id="i-star" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></symbol>
   <symbol id="i-flat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="1.5"/><path d="M9 22v-4h6v4M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></symbol>
   <symbol id="i-house" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></symbol>
@@ -475,12 +518,17 @@ b,strong{font-weight:400;color:var(--ink)}
 
 <main id="top">
   <section class="hero">
+    <picture class="hero__bg">
+      <source media="(min-width:960px)" srcset="img/hero-tlo-1280.webp 1280w, img/hero-tlo-1920.webp 1920w, img/hero-tlo-2560.webp 2560w" sizes="100vw">
+      <img src="img/hero-tlo-m-600.webp" srcset="img/hero-tlo-m-600.webp 600w, img/hero-tlo-m-900.webp 900w" sizes="100vw" width="900" height="1800" alt="" fetchpriority="high" decoding="async">
+    </picture>
     <div class="wrap hero__grid">
       <div>
         <div class="rating">
           <svg class="gico" aria-hidden="true"><use href="#i-google"/></svg>
           <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
-          <span><b>Prawie 900 opinii</b> w&nbsp;Google<span class="js-rating" hidden></span></span>
+          <span class="rating__avg js-avg" hidden></span>
+          <span class="rating__txt"><b>Prawie 900 opinii</b> w&nbsp;Google<span class="js-rating" hidden></span></span>
         </div>
         <h1>Świadectwo energetyczne <span class="accent">online, bez wychodzenia z&nbsp;domu</span></h1>
         <div class="price-tag"><s class="js-promo">190 zł</s><strong>od <span class="js-p-mieszkanie">149</span> zł</strong><span>cena z&nbsp;VAT, mieszkanie do 70 m²</span></div>
@@ -490,17 +538,23 @@ b,strong{font-weight:400;color:var(--ink)}
           <a class="btn btn--primary" href="#zamow">Zamów świadectwo <svg class="ico"><use href="#i-arrow"/></svg></a>
           <a class="btn btn--ghost js-tel" href="tel:+48881011991"><svg class="ico"><use href="#i-phone"/></svg>Zadzwoń 881 011 991</a>
         </div>
-      </div>
-
-      <div class="hero__visual">
-        <picture>
-          <source media="(min-width:960px)" srcset="img/hero-dom-3d.webp">
-          <img src="img/hero-dom-3d-480.webp" width="760" height="698" alt="Dom w przekroju ze skalą klas energetycznych od A do G" fetchpriority="high" decoding="async">
-        </picture>
         <div class="hero__stats">
           <div><b>17 lat</b><span>doświadczenia</span></div>
           <div><b>~100 tys.</b><span>opracowań</span></div>
           <div><b>~900</b><span>opinii w&nbsp;Google</span></div>
+        </div>
+      </div>
+
+      <div class="hero__visual">
+        <div class="eskala" role="img" aria-label="Skala klas energetycznych od A do G">
+          <p class="eskala__t">Klasa energetyczna</p>
+          <div class="eskala__r"><span class="eskala__b" style="--n:0;--c:#00964a">A</span><span class="eskala__m">A</span></div>
+          <div class="eskala__r"><span class="eskala__b" style="--n:1;--c:#50af32">B</span></div>
+          <div class="eskala__r"><span class="eskala__b eskala__b--d" style="--n:2;--c:#bed228">C</span></div>
+          <div class="eskala__r"><span class="eskala__b eskala__b--d" style="--n:3;--c:#ffde00">D</span></div>
+          <div class="eskala__r"><span class="eskala__b eskala__b--d" style="--n:4;--c:#faaf19">E</span></div>
+          <div class="eskala__r"><span class="eskala__b" style="--n:5;--c:#f0691e">F</span></div>
+          <div class="eskala__r"><span class="eskala__b" style="--n:6;--c:#e11e23">G</span></div>
         </div>
       </div>
     </div>
@@ -617,7 +671,7 @@ b,strong{font-weight:400;color:var(--ink)}
       </div>
       <div class="prices">
         <div class="pc pc--hl">
-          <img class="pc__img" src="img/mieszkanie.webp" width="640" height="427" alt="Blok mieszkalny z etykietą klas energetycznych" loading="lazy" decoding="async">
+          <span class="pc__img pc__tint"><img src="img/mieszkanie-640.webp" srcset="img/mieszkanie-640.webp 640w, img/mieszkanie-1280.webp 1280w" sizes="(min-width:960px) 560px, 100vw" width="640" height="427" alt="Nowoczesny blok mieszkalny z jasną elewacją" loading="lazy" decoding="async"></span>
           <span class="pc__badge js-promo">Promocja do 31.12</span>
           <h3>Mieszkanie</h3>
           <div class="pc__price"><s class="js-promo">190 zł</s><span class="js-p-mieszkanie">149</span> zł <small>do 70 m²</small></div>
@@ -630,7 +684,7 @@ b,strong{font-weight:400;color:var(--ink)}
           <a class="btn btn--primary js-pick" data-type="mieszkanie" href="#zamow">Zamów dla mieszkania</a>
         </div>
         <div class="pc">
-          <img class="pc__img" src="img/dom.webp" width="640" height="427" alt="Dom jednorodzinny z etykietą klas energetycznych" loading="lazy" decoding="async">
+          <span class="pc__img pc__tint"><img src="img/dom-640.webp" srcset="img/dom-640.webp 640w, img/dom-1280.webp 1280w" sizes="(min-width:960px) 560px, 100vw" width="640" height="427" alt="Nowoczesny dom jednorodzinny z dużymi przeszkleniami" loading="lazy" decoding="async"></span>
           <span class="pc__badge js-promo">Promocja do 31.12</span>
           <h3>Dom jednorodzinny</h3>
           <div class="pc__price"><s class="js-promo">390 zł</s>od <span class="js-p-dom">299</span> zł <small>do&nbsp;150&nbsp;m²</small></div>
@@ -806,6 +860,7 @@ var PRICING = {
     });
   }
   if (CONFIG.googleRating) document.querySelectorAll('.js-rating').forEach(function(el){ el.textContent = ', średnia ' + CONFIG.googleRating + '/5'; el.hidden = false; });
+  if (CONFIG.googleRating) document.querySelectorAll('.js-avg').forEach(function(el){ el.textContent = CONFIG.googleRating + '/5'; el.hidden = false; });
 
   function radios(container, name, list, fmt){
     container.innerHTML = list.map(function(o,i){
