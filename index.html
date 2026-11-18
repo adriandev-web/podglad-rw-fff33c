@@ -11,8 +11,8 @@
 <link rel="icon" href="img/logo.jpg">
 <link rel="preload" href="fonts/ttlakes-ext-medium.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="fonts/eurostile.woff" as="font" type="font/woff" crossorigin>
-<link rel="preload" as="image" imagesrcset="img/hero-tlo-1280.webp 1280w, img/hero-tlo-1920.webp 1920w, img/hero-tlo-2560.webp 2560w" imagesizes="100vw" media="(min-width:960px)" fetchpriority="high">
-<link rel="preload" as="image" imagesrcset="img/hero-tlo-m-600.webp 600w, img/hero-tlo-m-900.webp 900w" imagesizes="100vw" media="(max-width:959px)" fetchpriority="high">
+<link rel="preload" as="image" imagesrcset="img/hero-tlo-1280.webp?v=11 1280w, img/hero-tlo-1920.webp?v=11 1920w, img/hero-tlo-2560.webp?v=11 2560w" imagesizes="100vw" media="(min-width:960px)" fetchpriority="high">
+<link rel="preload" as="image" imagesrcset="img/hero-tlo-m-600.webp?v=11 600w, img/hero-tlo-m-900.webp?v=11 900w" imagesizes="100vw" media="(max-width:959px)" fetchpriority="high">
 
 <!-- Google Tag Manager: startuje po zdarzeniu load (nie czeka na interakcję jak WP Rocket Delay JS),
      więc pageview liczy się każdemu, kto został ok. 1-2 s, a skrypty Google nie konkurują z treścią. -->
@@ -533,8 +533,8 @@ b,strong{font-weight:400;color:var(--ink)}
 <main id="top">
   <section class="hero">
     <picture class="hero__bg">
-      <source media="(min-width:960px)" srcset="img/hero-tlo-1280.webp 1280w, img/hero-tlo-1920.webp 1920w, img/hero-tlo-2560.webp 2560w" sizes="100vw">
-      <img src="img/hero-tlo-m-600.webp" srcset="img/hero-tlo-m-600.webp 600w, img/hero-tlo-m-900.webp 900w" sizes="100vw" width="900" height="1800" alt="" fetchpriority="high" decoding="async">
+      <source media="(min-width:960px)" srcset="img/hero-tlo-1280.webp?v=11 1280w, img/hero-tlo-1920.webp?v=11 1920w, img/hero-tlo-2560.webp?v=11 2560w" sizes="100vw">
+      <img src="img/hero-tlo-m-600.webp?v=11" srcset="img/hero-tlo-m-600.webp?v=11 600w, img/hero-tlo-m-900.webp?v=11 900w" sizes="100vw" width="900" height="1800" alt="" fetchpriority="high" decoding="async">
     </picture>
     <div class="wrap hero__grid">
       <div>
@@ -685,7 +685,7 @@ b,strong{font-weight:400;color:var(--ink)}
       </div>
       <div class="prices">
         <div class="pc pc--hl">
-          <span class="pc__img pc__tint"><img src="img/mieszkanie-640.webp" srcset="img/mieszkanie-640.webp 640w, img/mieszkanie-1280.webp 1280w" sizes="(min-width:960px) 560px, 100vw" width="640" height="427" alt="Nowoczesny budynek mieszkalny z ciemną cegłą i białymi balkonami" loading="lazy" decoding="async"></span>
+          <span class="pc__img pc__tint"><img src="img/mieszkanie-640.webp?v=11" srcset="img/mieszkanie-640.webp?v=11 640w, img/mieszkanie-1280.webp?v=11 1280w" sizes="(min-width:960px) 560px, 100vw" width="640" height="427" alt="Nowoczesny budynek mieszkalny z ciemną cegłą i białymi balkonami" loading="lazy" decoding="async"></span>
           <span class="pc__badge js-promo">Promocja do 31.12</span>
           <h3>Mieszkanie</h3>
           <div class="pc__price"><s class="js-promo">190 zł</s><span class="js-p-mieszkanie">149</span> zł <small>do 70 m²</small></div>
@@ -698,7 +698,7 @@ b,strong{font-weight:400;color:var(--ink)}
           <a class="btn btn--primary js-pick" data-type="mieszkanie" href="#zamow">Zamów dla mieszkania</a>
         </div>
         <div class="pc">
-          <span class="pc__img pc__tint"><img src="img/dom-640.webp" srcset="img/dom-640.webp 640w, img/dom-1280.webp 1280w" sizes="(min-width:960px) 560px, 100vw" width="640" height="427" alt="Nowoczesny dom z grafitową elewacją i drewnianymi drzwiami" loading="lazy" decoding="async"></span>
+          <span class="pc__img pc__tint"><img src="img/dom-640.webp?v=11" srcset="img/dom-640.webp?v=11 640w, img/dom-1280.webp?v=11 1280w" sizes="(min-width:960px) 560px, 100vw" width="640" height="427" alt="Nowoczesny dom z grafitową elewacją i drewnianymi drzwiami" loading="lazy" decoding="async"></span>
           <span class="pc__badge js-promo">Promocja do 31.12</span>
           <h3>Dom jednorodzinny</h3>
           <div class="pc__price"><s class="js-promo">390 zł</s>od <span class="js-p-dom">299</span> zł <small>do&nbsp;150&nbsp;m²</small></div>
