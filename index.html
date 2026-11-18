@@ -383,6 +383,7 @@ b,strong{font-weight:400;color:var(--ink)}
 /* delikatna maska w bordo strony na zdjeciach (17.11) */
 .pc__tint{display:block;position:relative;overflow:hidden}
 .pc__tint img{width:100%;height:100%;object-fit:cover;display:block}
+.pc__tint::after{content:"";position:absolute;left:16px;bottom:14px;width:clamp(36px,9%,48px);aspect-ratio:1;background:url(img/logo-sygnet.webp?v=1) no-repeat left bottom/contain;opacity:.88;filter:drop-shadow(0 1px 3px rgba(0,0,0,.45));pointer-events:none}
 /* zdjecia szaro-biale, kolor daje tylko interfejs (17.11) */
 .pc__label{position:absolute;left:5%;bottom:5%;width:44%;max-width:240px;aspect-ratio:1;filter:drop-shadow(0 8px 18px rgba(20,30,40,.22))}
 .pc--hl{border:2px solid var(--green)}
