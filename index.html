@@ -10,21 +10,30 @@
 <meta name="theme-color" content="#931622">
 <link rel="icon" href="img/logo.jpg">
 <link rel="preload" href="fonts/ttlakes-ext-medium.woff" as="font" type="font/woff" crossorigin>
-<link rel="preload" href="fonts/eurostile.woff" as="font" type="font/woff" crossorigin>
-<link rel="preload" as="image" imagesrcset="img/hero-tlo-1280.webp?v=11 1280w, img/hero-tlo-1920.webp?v=11 1920w, img/hero-tlo-2560.webp?v=11 2560w" imagesizes="100vw" media="(min-width:960px)" fetchpriority="high">
-<link rel="preload" as="image" imagesrcset="img/hero-tlo-m-600.webp?v=11 600w, img/hero-tlo-m-900.webp?v=11 900w" imagesizes="100vw" media="(max-width:959px)" fetchpriority="high">
+<link rel="preload" href="fonts/lexend-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/lexend-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+<!-- Wariant pod grupę reklam: domyślnie mieszkanie, ?typ=dom = dom (nagłówek, cena, zdjęcie, kalkulator).
+     Klasa na <html> ustawiona przed CSS, więc nie ma mignięcia; preload tylko zdjęcia dla danego wariantu. -->
+<script>(function(){var t=/[?&]typ=dom(&|#|$)/i.test(location.search)?'dom':'mieszkanie';window.RW_TYP=t;document.documentElement.className+=' typ-'+t;
+var H={mieszkanie:{d:'img/hero-blok-1280.webp?v=12 1280w, img/hero-blok-1920.webp?v=12 1920w, img/hero-blok-2560.webp?v=12 2560w',m:'img/hero-blok-m-600.webp?v=12 600w, img/hero-blok-m-900.webp?v=12 900w'},
+dom:{d:'img/hero-tlo-1280.webp?v=11 1280w, img/hero-tlo-1920.webp?v=11 1920w, img/hero-tlo-2560.webp?v=11 2560w',m:'img/hero-tlo-m-600.webp?v=11 600w, img/hero-tlo-m-900.webp?v=11 900w'}}[t];window.RW_HERO=H;
+[[H.d,'(min-width:960px)'],[H.m,'(max-width:959px)']].forEach(function(x){var l=document.createElement('link');l.rel='preload';l.as='image';l.setAttribute('imagesrcset',x[0]);l.setAttribute('imagesizes','100vw');l.media=x[1];l.setAttribute('fetchpriority','high');document.head.appendChild(l);});
+if(t==='dom')document.title='Świadectwo energetyczne domu od 299 zł, promocja do 31.12 | RW Projekt';})();</script>
 
 <!-- Google Tag Manager: startuje po zdarzeniu load (nie czeka na interakcję jak WP Rocket Delay JS),
      więc pageview liczy się każdemu, kto został ok. 1-2 s, a skrypty Google nie konkurują z treścią. -->
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
 /* Consent Mode v2: domyślnie brak zgody, dopóki baner (Midero) nie wyśle consent update */
 gtag('consent','default',{ad_storage:'denied',analytics_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});
+/* zapisana wcześniej zgoda z banera (ciasteczko rw_consent=a1m0: a = analityczne, m = marketingowe) */
+(function(){var c=document.cookie.match(/(?:^|; )rw_consent=a([01])m([01])/);if(!c)return;var a=c[1]==='1',m=c[2]==='1';window.RW_CONSENT={a:a,m:m};gtag('consent','update',{analytics_storage:a?'granted':'denied',ad_storage:m?'granted':'denied',ad_user_data:m?'granted':'denied',ad_personalization:m?'granted':'denied'});})();
 window.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});
 window.addEventListener('load',function(){setTimeout(function(){var j=document.createElement('script');j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id=GTM-57W8V9WW';document.head.appendChild(j);},300);});</script>
 
 <style>
 @font-face{font-family:"TTLakes";font-style:normal;font-weight:400 700;font-display:swap;src:url(fonts/ttlakes-ext-medium.woff) format("woff")}
-@font-face{font-family:"Eurostile";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/eurostile.woff) format("woff")}
+@font-face{font-family:"Lexend";font-style:normal;font-weight:400 700;font-display:swap;src:url(fonts/lexend-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Lexend";font-style:normal;font-weight:400 700;font-display:swap;src:url(fonts/lexend-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 :root{
   --ink:#2b2d35; --ink-2:#4d5163; --muted:#6b6f7d;
   --bg:#ffffff; --soft:#f5f5f5; --line:#e8e8e8;
@@ -34,7 +43,7 @@ window.addEventListener('load',function(){setTimeout(function(){var j=document.c
   --r:16px; --r-s:10px;
   --pad:16px; --max:1180px;
   --shadow:0 1px 2px rgba(20,33,26,.06),0 8px 24px rgba(20,33,26,.08);
-  --f:"Eurostile",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; --fh:"TTLakes","Eurostile",system-ui,sans-serif;
+  --f:"Lexend",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif; --fh:"TTLakes",system-ui,sans-serif;
 }
 @media (min-width:768px){:root{--pad:32px}}
 *{box-sizing:border-box}
@@ -484,6 +493,46 @@ b,strong{font-weight:400;color:var(--ink)}
 .opt input{z-index:1}
 .btn:active,.opt input:active + label{transform:translateY(1px)}
 @media (prefers-reduced-motion:reduce){*,*::after{animation:none!important}.pc:hover,.opt label:hover,.btn--primary:hover{transform:none}}
+/* === Uwagi klienta 20.11 ===
+   Teksty, przyciski i numery telefonów: Lexend (czcionka tekstów ze strony klienta). TT Lakes zostaje w nagłówkach i cenach.
+   Minimum na telefonie: 16 px przyciski, 14 px teksty pomocnicze, 15-16 px pasek zaufania. */
+.btn,.opt__t,.faq summary,.step__n,.promo,.pc__badge,.topbar,.hdr__phone,.fprog__txt,.ex__t b{font-family:var(--f)}
+b,strong{font-weight:600}
+.btn{font-size:clamp(16px,.2vw + 15.5px,17px);text-transform:none;letter-spacing:0;font-weight:600}
+.hdr .btn{font-size:16px}
+.hdr__phone{font-size:16px;font-weight:600}
+.topbar{font-size:clamp(14px,.2vw + 13.5px,15px)}
+.topbar b{font-weight:600;-webkit-text-stroke:0}
+.omni{font-size:14px;color:var(--ink-2)}
+.sum__vat,.pc__badge,.sbar__p span,.hero__stats span,.eyebrow,.fprog__txt,.opt__s,.step__n,.consent,.f .consent,.err,.submit-row small,.ex__t span,.num,.opt__p s{font-size:14px}
+.price-tag s span{font-size:inherit;color:inherit}
+.strip__it{font-size:15px}
+.strip__it b{font-size:16px}
+.fback{font-size:15px}
+.opt-l{font-weight:400;color:var(--muted)}
+.eskala__t{font-size:14px;font-family:var(--f);font-weight:600}
+@media (max-width:959px){.eskala{width:min(190px,48vw)}.eskala__t{font-size:14px}.eskala__b{height:18px;font-size:12px}}
+/* warianty treści: mieszkanie (domyślnie) i dom (?typ=dom) */
+.typ-dom .v-m,html:not(.typ-dom) .v-d{display:none!important}
+/* cennik na telefonie: kwota w jednej linii */
+@media (max-width:559px){.pc__price{font-size:clamp(30px,8.4vw,40px)}}
+/* wąski telefon: stara cena nad nową, żeby opcja nie rozpychała panelu */
+.order > *{min-width:0}
+@media (max-width:559px){.opt--type .opt__p{display:flex;flex-direction:column;align-items:flex-end;line-height:1.2;text-align:right}.opt--type .opt__p s{margin:0 0 2px}}
+/* baner zgód cookies (Consent Mode v2) */
+.cmp{position:fixed;left:12px;right:12px;bottom:12px;z-index:70;max-width:520px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 40px rgba(20,20,30,.22);padding:18px;font-size:14px;line-height:1.5;color:var(--ink-2)}
+@media (min-width:900px){.cmp{left:24px;right:auto;bottom:24px;margin:0}}
+.cmp__t{font-family:var(--fh);font-size:17px;color:var(--ink);margin-bottom:6px}
+.cmp a{color:var(--green);font-weight:600}
+.cmp__cats{margin-top:12px;display:grid;gap:8px}
+.cmp__cat{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1px solid var(--line);border-radius:8px;cursor:pointer}
+.cmp__cat input{width:20px;height:20px;accent-color:var(--green);margin:2px 0 0;flex:none}
+.cmp__cat b{display:block;color:var(--ink)}
+.cmp__btns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.cmp__btns .btn{min-height:48px;padding:10px 14px}
+.cmp__more{grid-column:1/-1;background:none;border:0;font:inherit;font-size:15px;color:var(--ink-2);text-decoration:underline;padding:8px;cursor:pointer}
+.ftr__cmp{background:none;border:0;padding:5px 0;font:inherit;color:inherit;cursor:pointer;text-align:left}
+.ftr__cmp:hover{text-decoration:underline}
 </style>
 </head>
 <body>
@@ -534,9 +583,10 @@ b,strong{font-weight:400;color:var(--ink)}
 <main id="top">
   <section class="hero">
     <picture class="hero__bg">
-      <source media="(min-width:960px)" srcset="img/hero-tlo-1280.webp?v=11 1280w, img/hero-tlo-1920.webp?v=11 1920w, img/hero-tlo-2560.webp?v=11 2560w" sizes="100vw">
-      <img src="img/hero-tlo-m-600.webp?v=11" srcset="img/hero-tlo-m-600.webp?v=11 600w, img/hero-tlo-m-900.webp?v=11 900w" sizes="100vw" width="900" height="1800" alt="" fetchpriority="high" decoding="async">
+      <source media="(min-width:960px)" id="heroSrc" sizes="100vw">
+      <img id="heroImg" sizes="100vw" width="900" height="1800" alt="" fetchpriority="high" decoding="async">
     </picture>
+    <script>(function(){var h=window.RW_HERO,i=document.getElementById('heroImg');document.getElementById('heroSrc').srcset=h.d;i.srcset=h.m;i.src=h.m.split(' ')[0];})();</script>
     <div class="wrap hero__grid">
       <div>
         <div class="rating">
@@ -545,10 +595,10 @@ b,strong{font-weight:400;color:var(--ink)}
           <span class="rating__avg js-avg" hidden></span>
           <span class="rating__txt"><b>Prawie 900 opinii</b> w&nbsp;Google<span class="js-rating" hidden></span></span>
         </div>
-        <h1>Świadectwo energetyczne <span class="accent">online, bez wychodzenia z&nbsp;domu</span></h1>
-        <div class="price-tag"><s class="js-promo">190 zł</s><strong>od <span class="js-p-mieszkanie">149</span> zł</strong><span>cena z&nbsp;VAT, mieszkanie do 70 m²</span></div>
-        <small class="omni js-promo">Najniższa cena z&nbsp;30 dni przed obniżką: 190 zł</small>
-        <p class="hero__sub">Płacisz dopiero po wykonaniu świadectwa. Dane od spółdzielni zdobywamy sami, ekspres nawet w&nbsp;6&nbsp;h.</p>
+        <h1>Świadectwo energetyczne <span class="v-m">mieszkania</span><span class="v-d">domu</span> <span class="accent"><span class="v-m">online, bez wychodzenia z&nbsp;domu</span><span class="v-d">online, w&nbsp;pełni zdalnie</span></span></h1>
+        <div class="price-tag"><s class="js-promo"><span class="v-m">190</span><span class="v-d">390</span> zł</s><strong>od <span class="js-p-mieszkanie v-m">149</span><span class="js-p-dom v-d">299</span> zł</strong><span>cena z&nbsp;VAT, <span class="v-m">mieszkanie do 80&nbsp;m²</span><span class="v-d">dom do 150&nbsp;m²</span></span></div>
+        <small class="omni js-promo">Najniższa cena z&nbsp;30 dni przed obniżką: <span class="v-m">190</span><span class="v-d">390</span> zł</small>
+        <p class="hero__sub"><span class="v-m">Płacisz dopiero po wykonaniu świadectwa. Dane od spółdzielni zdobywamy sami, ekspres nawet w&nbsp;6&nbsp;h.</span><span class="v-d">Płacisz dopiero po wykonaniu świadectwa. Nie masz projektu domu? Poradzimy sobie bez niego. Ekspres nawet w&nbsp;6&nbsp;h.</span></p>
         <div class="hero__btns">
           <a class="btn btn--primary" href="#zamow">Zamów świadectwo <svg class="ico"><use href="#i-arrow"/></svg></a>
           <a class="btn btn--ghost js-tel" href="tel:+48881011991"><svg class="ico"><use href="#i-phone"/></svg>Zadzwoń 881 011 991</a>
@@ -563,7 +613,7 @@ b,strong{font-weight:400;color:var(--ink)}
       <div class="hero__visual">
         <div class="eskala" role="img" aria-label="Skala klas energetycznych od A do G">
           <p class="eskala__t">Klasa energetyczna</p>
-          <div class="eskala__r"><span class="eskala__b" style="--n:0;--c:#00964a">A</span><span class="eskala__m">A</span></div>
+          <div class="eskala__r"><span class="eskala__b" style="--n:0;--c:#00964a">A</span></div>
           <div class="eskala__r"><span class="eskala__b" style="--n:1;--c:#50af32">B</span></div>
           <div class="eskala__r"><span class="eskala__b eskala__b--d" style="--n:2;--c:#bed228">C</span></div>
           <div class="eskala__r"><span class="eskala__b eskala__b--d" style="--n:3;--c:#ffde00">D</span></div>
@@ -621,10 +671,10 @@ b,strong{font-weight:400;color:var(--ink)}
             <fieldset data-step="4">
               <legend><span class="num">4</span>Dane do kontaktu</legend>
               <div class="fields">
-                <div class="f"><label for="imie">Imię</label><input id="imie" name="imie" autocomplete="given-name"></div>
+                <div class="f"><label for="imie">Imię <span class="opt-l">(opcjonalnie)</span></label><input id="imie" name="imie" autocomplete="given-name"></div>
                 <div class="f" data-req="tel"><label for="telefon">Telefon *</label><input id="telefon" name="telefon" type="tel" inputmode="tel" autocomplete="tel" required><div class="err">Podaj numer telefonu, żebyśmy mogli potwierdzić zamówienie</div></div>
-                <div class="f" data-req="email"><label for="email">E-mail *</label><input id="email" name="email" type="email" inputmode="email" autocomplete="email" required><div class="err">Podaj poprawny adres e-mail</div></div>
-                <div class="f" data-req="text"><label for="miejscowosc">Miejscowość, w której jest nieruchomość *</label><input id="miejscowosc" name="miejscowosc" autocomplete="address-level2" required><div class="err">Podaj miejscowość</div></div>
+                <div class="f" data-req="email-opt"><label for="email">E-mail <span class="opt-l">(opcjonalnie)</span></label><input id="email" name="email" type="email" inputmode="email" autocomplete="email"><div class="err">Sprawdź adres e-mail albo zostaw to pole puste</div></div>
+                <div class="f"><label for="miejscowosc">Miejscowość, w której jest nieruchomość <span class="opt-l">(opcjonalnie)</span></label><input id="miejscowosc" name="miejscowosc" autocomplete="address-level2"></div>
                 <div class="f full"><label for="uwagi">Uwagi (opcjonalnie)</label><textarea id="uwagi" name="uwagi" placeholder="Np. potrzebuję świadectwa do aktu notarialnego w przyszły wtorek"></textarea></div>
                 <div class="f full" data-req="consent">
                   <label class="consent"><input type="checkbox" name="zgoda" id="zgoda" required><span>Wyrażam zgodę na kontakt w&nbsp;sprawie zamówienia. Administratorem danych jest RW PROJEKT Sp. z&nbsp;o.o. z&nbsp;siedzibą w&nbsp;Białymstoku. Dane przetwarzamy wyłącznie w&nbsp;celu realizacji zamówienia. Szczegóły i&nbsp;Twoje prawa opisujemy w <a href="https://www.rwprojekt.com.pl/polityka-prywatnosci/" target="_blank" rel="noopener">polityce prywatności</a>. *</span></label>
@@ -686,13 +736,13 @@ b,strong{font-weight:400;color:var(--ink)}
       </div>
       <div class="prices">
         <div class="pc pc--hl">
-          <span class="pc__img pc__tint"><img src="img/mieszkanie-640.webp?v=11" srcset="img/mieszkanie-640.webp?v=11 640w, img/mieszkanie-1280.webp?v=11 1280w" sizes="(min-width:960px) 560px, 100vw" width="640" height="427" alt="Nowoczesny budynek mieszkalny z ciemną cegłą i białymi balkonami" loading="lazy" decoding="async"></span>
+          <span class="pc__img pc__tint"><img src="img/mieszkanie-640.webp?v=12" srcset="img/mieszkanie-640.webp?v=12 640w, img/mieszkanie-1280.webp?v=12 1280w" sizes="(min-width:960px) 560px, 100vw" width="640" height="427" alt="Jasna elewacja bloku mieszkalnego z balkonami i grafitowymi wykończeniami" loading="lazy" decoding="async"></span>
           <span class="pc__badge js-promo">Promocja do 31.12</span>
           <h3>Mieszkanie</h3>
-          <div class="pc__price"><s class="js-promo">190 zł</s><span class="js-p-mieszkanie">149</span> zł <small>do 70 m²</small></div>
+          <div class="pc__price"><s class="js-promo">190 zł</s><span class="js-p-mieszkanie">149</span> zł <small>do 80&nbsp;m²</small></div>
           <small class="omni js-promo">Najniższa cena z&nbsp;30 dni przed obniżką: 190 zł</small>
           <ul>
-            <li>Powyżej 70 m²<b>+50 zł</b></li>
+            <li>Powyżej 80&nbsp;m²<b>+50 zł</b></li>
             <li>Dane od spółdzielni lub zarządcy<b>w cenie</b></li>
             <li>Konsultacja z&nbsp;audytorem<b>w cenie</b></li>
           </ul>
@@ -702,12 +752,12 @@ b,strong{font-weight:400;color:var(--ink)}
           <span class="pc__img pc__tint"><img src="img/dom-640.webp?v=11" srcset="img/dom-640.webp?v=11 640w, img/dom-1280.webp?v=11 1280w" sizes="(min-width:960px) 560px, 100vw" width="640" height="427" alt="Nowoczesny dom z grafitową elewacją i drewnianymi drzwiami" loading="lazy" decoding="async"></span>
           <span class="pc__badge js-promo">Promocja do 31.12</span>
           <h3>Dom jednorodzinny</h3>
-          <div class="pc__price"><s class="js-promo">390 zł</s>od <span class="js-p-dom">299</span> zł <small>do&nbsp;150&nbsp;m²</small></div>
+          <div class="pc__price"><s class="js-promo">390 zł</s><span style="white-space:nowrap">od <span class="js-p-dom">299</span> zł</span> <small>do&nbsp;150&nbsp;m²</small></div>
           <small class="omni js-promo">Najniższa cena z&nbsp;30 dni przed obniżką: 390 zł</small>
           <ul>
             <li>150-250 m²<b>+60 zł</b></li>
             <li>250-400 m²<b>+120 zł</b></li>
-            <li>Powyżej 400 m²<b>wycena indywidualna</b></li>
+            <li>Powyżej 400&nbsp;m²<b>wycena indywidualna</b></li>
             <li>Brak projektu lub dokumentacji<b>+50 zł</b></li>
             <li>Nowy dom do odbioru<b>bez dopłaty</b></li>
           </ul>
@@ -751,21 +801,20 @@ b,strong{font-weight:400;color:var(--ink)}
           <div><span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><span>Prawie 900 opinii w&nbsp;Google<span class="js-rating" hidden></span></span><a href="https://g.page/r/CWogD5_7JiQrEAE" target="_blank" rel="noopener">Zobacz opinie w&nbsp;Google</a></div>
         </div>
       </div>
-      <!-- Opinie: tylko prawdziwe z Google. Zostawione 12 pierwszych (17.11), zwijanie działa samo. -->
+      <!-- Opinie: dosłowne cytaty z Google (zrzuty 17.11 i widget Trustindex na rwprojekt.com.pl), bez zmian w treści. Dopisane tylko twarde spacje. -->
       <div class="revs-wrap is-collapsed" id="revsWrap">
         <div class="revs" id="revs">
-        <figure class="rv"><div class="rv__top"><span class="stars" role="img" aria-label="5 na 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="gico" role="img" aria-label="Opinia z Google"><use href="#i-google"/></svg></div><p>Z całego serca polecam tę firmę! Pełen profesjonalizm, świetny kontakt z&nbsp;klientem i&nbsp;bardzo miła obsługa. Świadectwo energetyczne wykonane szybko, sprawnie i&nbsp;bezproblemowo, a&nbsp;co najważniejsze, bez konieczności wychodzenia z&nbsp;domu!</p><footer><span class="av">MM</span>Małgorzata M.</footer></figure>
-        <figure class="rv"><div class="rv__top"><span class="stars" role="img" aria-label="5 na 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="gico" role="img" aria-label="Opinia z Google"><use href="#i-google"/></svg></div><p>Bardzo polecam tę firmę za profesjonalne i&nbsp;sprawne wykonanie świadectwa charakterystyki energetycznej. Całość zrealizowana szybko, terminowo i&nbsp;bez żadnych problemów. Wszystko zostało dokładnie wyjaśnione, a&nbsp;formalności przebiegły bez zbędnych komplikacji.</p><footer><span class="av">MH</span>Monika H.</footer></figure>
-        <figure class="rv"><div class="rv__top"><span class="stars" role="img" aria-label="5 na 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="gico" role="img" aria-label="Opinia z Google"><use href="#i-google"/></svg></div><p>Bardzo polecam współpracę z&nbsp;RW Projekt Rafał Wójcik. Usługa wykonana profesjonalnie, sprawnie i&nbsp;z&nbsp;dużą dbałością o&nbsp;szczegóły. Świetny kontakt, rzetelne podejście i&nbsp;pełne zaangażowanie, zdecydowanie polecam!</p><footer><span class="av">UM</span>Urszula M.</footer></figure>
+        <figure class="rv"><div class="rv__top"><span class="stars" role="img" aria-label="5 na 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="gico" role="img" aria-label="Opinia z Google"><use href="#i-google"/></svg></div><p>Z&nbsp;całego serca polecam tę firmę! Pełen profesjonalizm, świetny kontakt z&nbsp;klientem na 5 gwiazdek i&nbsp;bardzo miła obsługa. Usługa wystawienia świadectwa energetycznego została wykonana szybko, sprawnie i&nbsp;bezproblemowo, a&nbsp;co najważniejsze – bez konieczności wychodzenia z&nbsp;domu! Wszystko przebiegło bardzo profesjonalnie i&nbsp;zgodnie z&nbsp;oczekiwaniami. Jestem bardzo zadowolona i&nbsp;z&nbsp;pewnością polecam każdemu!</p><footer><span class="av">MM</span>Małgorzata M.</footer></figure>
+        <figure class="rv"><div class="rv__top"><span class="stars" role="img" aria-label="5 na 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="gico" role="img" aria-label="Opinia z Google"><use href="#i-google"/></svg></div><p>Bardzo polecam tę firmę za profesjonalne i&nbsp;sprawne wykonanie świadectwa charakterystyki energetycznej. Cała usługa została zrealizowana szybko, terminowo i&nbsp;bez żadnych problemów. Kontakt z&nbsp;firmą był bardzo dobry – wszystko zostało dokładnie wyjaśnione, a&nbsp;formalności przebiegły sprawnie i&nbsp;bez zbędnych komplikacji. Jestem bardzo zadowolona z&nbsp;obsługi, podejścia do klienta oraz jakości wykonanej usługi. Zdecydowanie polecam firmę</p><footer><span class="av">MH</span>Monika H.</footer></figure>
+        <figure class="rv"><div class="rv__top"><span class="stars" role="img" aria-label="5 na 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="gico" role="img" aria-label="Opinia z Google"><use href="#i-google"/></svg></div><p>Bardzo polecam współpracę z&nbsp;RW Projekt Rafał Wójcik. Usługa została wykonana profesjonalnie, sprawnie i&nbsp;z&nbsp;dużą dbałością o&nbsp;szczegóły. Świetny kontakt, rzetelne podejście i&nbsp;pełne zaangażowanie, zdecydowanie polecam!</p><footer><span class="av">UM</span>Urszula M.</footer></figure>
         <figure class="rv"><div class="rv__top"><span class="stars" role="img" aria-label="5 na 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="gico" role="img" aria-label="Opinia z Google"><use href="#i-google"/></svg></div><p>Polecam! Świadectwo charakterystyki energetycznej mieszkania zostało sporządzone ekspresowo i&nbsp;w&nbsp;pełni profesjonalnie. Cały proces przebiegł szybko, sprawnie i&nbsp;bez jakichkolwiek problemów. Bardzo dobry kontakt z&nbsp;firmą.</p><footer><span class="av">JN</span>Joanna N.</footer></figure>
         <figure class="rv"><div class="rv__top"><span class="stars" role="img" aria-label="5 na 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="gico" role="img" aria-label="Opinia z Google"><use href="#i-google"/></svg></div><p>Polecam! Świadectwo charakterystyki energetycznej zostało wykonane szybko i&nbsp;sprawnie. Bardzo dobry kontakt, wszystko jasno wyjaśnione, a&nbsp;cała usługa przebiegła bezproblemowo. Profesjonalne podejście i&nbsp;atrakcyjna cena.</p><footer><span class="av">R</span>Roksa35</footer></figure>
-        <figure class="rv"><div class="rv__top"><span class="stars" role="img" aria-label="5 na 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="gico" role="img" aria-label="Opinia z Google"><use href="#i-google"/></svg></div><p>Polecam współpracę z&nbsp;firmą RW Projekt Rafał Wójcik. Świadectwo charakterystyki energetycznej zostało wykonane szybko i&nbsp;profesjonalnie. Świetny kontakt, sprawna realizacja i&nbsp;pełen profesjonalizm.</p><footer><span class="av">JZ</span>Justyna Z.</footer></figure>
-        <figure class="rv"><div class="rv__top"><span class="stars" role="img" aria-label="5 na 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="gico" role="img" aria-label="Opinia z Google"><use href="#i-google"/></svg></div><p>Jestem bardzo zadowolona z&nbsp;usługi (świadectwo charakterystyki energetycznej). Pomimo kontaktu tylko online usługę wykonano szybko i&nbsp;profesjonalnie. Bardzo polecam tę firmę.</p><footer><span class="av">AG</span>Anna G.</footer></figure>
-        <figure class="rv"><div class="rv__top"><span class="stars" role="img" aria-label="5 na 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="gico" role="img" aria-label="Opinia z Google"><use href="#i-google"/></svg></div><p>Polecam! Świetny kontakt, dobre terminy i&nbsp;profesjonalna obsługa. Sprawna komunikacja od momentu zlecenia po wystawienie faktury, dodatkowy plus to przystępne ceny.</p><footer><span class="av">EW</span>Emilia W.</footer></figure>
-        <figure class="rv"><div class="rv__top"><span class="stars" role="img" aria-label="5 na 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="gico" role="img" aria-label="Opinia z Google"><use href="#i-google"/></svg></div><p>Bardzo porządna, solidna firma. Bardzo zależało mi na świadectwie w&nbsp;trybie pilnym, miałam wykonane ekspresowo. Polecam z&nbsp;czystym sumieniem, bardzo dobry kontakt i&nbsp;miła, profesjonalna obsługa.</p><footer><span class="av">D</span>Delicja32</footer></figure>
-        <figure class="rv"><div class="rv__top"><span class="stars" role="img" aria-label="5 na 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="gico" role="img" aria-label="Opinia z Google"><use href="#i-google"/></svg></div><p>Szybko, profesjonalnie i&nbsp;uczciwie. Okazało się, że budynek według przepisów nie wymaga świadectwa, ale bez problemu otrzymałam oświadczenie, dzięki czemu dokumentacja wymagana przez bank była pełna. Dziękuję i&nbsp;będę polecać!</p><footer><span class="av">KW</span>Katarzyna W.</footer></figure>
-        <figure class="rv"><div class="rv__top"><span class="stars" role="img" aria-label="5 na 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="gico" role="img" aria-label="Opinia z Google"><use href="#i-google"/></svg></div><p>Bardzo polecam wykonanie świadectwa w&nbsp;RW Projekt. Robiłam 3, wszystkie na szybko, także jestem zadowolona i&nbsp;bardzo dziękuję za szybką realizację.</p><footer><span class="av">MK</span>Magdalena K.</footer></figure>
-        <figure class="rv"><div class="rv__top"><span class="stars" role="img" aria-label="5 na 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="gico" role="img" aria-label="Opinia z Google"><use href="#i-google"/></svg></div><p>Bardzo dobry kontakt z&nbsp;firmą i&nbsp;profesjonalne podejście do zamówienia. Świadectwo energetyczne wykonane zgodnie z&nbsp;oczekiwaniami oraz w&nbsp;szybkim terminie. Polecam serdecznie.</p><footer><span class="av">DK</span>Daniel K.</footer></figure>
+        <figure class="rv"><div class="rv__top"><span class="stars" role="img" aria-label="5 na 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="gico" role="img" aria-label="Opinia z Google"><use href="#i-google"/></svg></div><p>Polecam współpracę z&nbsp;firmą RW Projekt Rafał Wójcik. Świadectwo charakterystyki energetycznej zostało wykonane szybko i&nbsp;profesjonalnie. Świetny kontakt, sprawna realizacja i&nbsp;pełen profesjonalizm. Wszystko przebiegło bezproblemowo.</p><footer><span class="av">JZ</span>Justyna Z.</footer></figure>
+        <figure class="rv"><div class="rv__top"><span class="stars" role="img" aria-label="5 na 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="gico" role="img" aria-label="Opinia z Google"><use href="#i-google"/></svg></div><p>Jestem bardzo zadowolona z&nbsp;usługi (Świadectwo charakterystyki energetycznej) jaką wykonała dla mnie firma RW Projekt Rafał Wójcik. Pomimo kontaktu tylko online usługę wykonano szybko i&nbsp;profesjonalnie. Bardzo polecam tą firmę.</p><footer><span class="av">AG</span>Anna G.</footer></figure>
+        <figure class="rv"><div class="rv__top"><span class="stars" role="img" aria-label="5 na 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="gico" role="img" aria-label="Opinia z Google"><use href="#i-google"/></svg></div><p>Polecam! Świetny kontakt, dobre terminy i&nbsp;profesjonalna obsługa. Sprawna komunikacja od momentu zlecenia po wystawienie faktury, dodatkowy plus to przystępne ceny. Współpraca z&nbsp;której korzystam i&nbsp;będę polecać klientom.</p><footer><span class="av">EW</span>Emilia W.</footer></figure>
+        <figure class="rv"><div class="rv__top"><span class="stars" role="img" aria-label="5 na 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="gico" role="img" aria-label="Opinia z Google"><use href="#i-google"/></svg></div><p>Szybko, profesjonalnie i&nbsp;uczciwie. Okazało się, że budynek, według przepisów, nie wymaga świadectwa, ale bez problemu otrzymałam oświadczenie, dzięki czemu wymagana przez bank dokumentacja stała się pełna. Dziękuję bardzo i&nbsp;będę polecać! :)</p><footer><span class="av">KW</span>Katarzyna W.</footer></figure>
+        <figure class="rv"><div class="rv__top"><span class="stars" role="img" aria-label="5 na 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="gico" role="img" aria-label="Opinia z Google"><use href="#i-google"/></svg></div><p>Bardzo polecam wykonanie świadectwa w&nbsp;RW Projekt. Robiłam 3 - wszystkie na szybko, także jestem zadowolona i&nbsp;bardzo dziękuję za szybką realizację.</p><footer><span class="av">MK</span>Magdalena K.</footer></figure>
+        <figure class="rv"><div class="rv__top"><span class="stars" role="img" aria-label="5 na 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="gico" role="img" aria-label="Opinia z Google"><use href="#i-google"/></svg></div><p>Bardzo dobry kontakt z&nbsp;firmą i&nbsp;profesjonalne podejście do zamówienia. Zamówienie na świadectwo energetyczne wykonane zgodnie z&nbsp;oczekiwaniami oraz w&nbsp;szybkim terminie. Polecam serdecznie firmę RW Projekt Rafał Wójcik.</p><footer><span class="av">DK</span>Daniel K.</footer></figure>
         </div>
       </div>
       <div class="revs-more"><button class="btn btn--ghost" type="button" id="revsBtn" aria-controls="revs" aria-expanded="false">Zobacz więcej opinii</button></div>
@@ -777,7 +826,7 @@ b,strong{font-weight:400;color:var(--ink)}
     <div class="wrap">
       <div class="sec-head"><h2>Najczęstsze pytania</h2></div>
       <div class="faq">
-        <details><summary>Ile kosztuje świadectwo energetyczne?<svg class="ico"><use href="#i-plus"/></svg></summary><div><p>Mieszkanie do 70 m² kosztuje 149 zł, dom do 150 m² od 299 zł (ceny promocyjne do 31.12.2026, z&nbsp;VAT). Dopłaty dotyczą większej powierzchni, trybu ekspresowego i&nbsp;wersji papierowej. Dokładną kwotę zobaczysz w&nbsp;formularzu powyżej, zanim cokolwiek wyślesz.</p></div></details>
+        <details><summary>Ile kosztuje świadectwo energetyczne?<svg class="ico"><use href="#i-plus"/></svg></summary><div><p>Mieszkanie do 80 m² kosztuje 149 zł, dom do 150 m² od 299 zł (ceny promocyjne do 31.12.2026, z&nbsp;VAT). Dopłaty dotyczą większej powierzchni, trybu ekspresowego i&nbsp;wersji papierowej. Dokładną kwotę zobaczysz w&nbsp;formularzu powyżej, zanim cokolwiek wyślesz.</p></div></details>
         <details><summary>Ile trwa przygotowanie świadectwa?<svg class="ico"><use href="#i-plus"/></svg></summary><div><p>Standardowo jeden dzień roboczy. W&nbsp;trybie ekspresowym 12 h (+49 zł) albo 6 h (+99 zł). Czas liczymy od chwili, gdy mamy komplet danych.</p></div></details>
         <details><summary>Jakie dane są potrzebne?<svg class="ico"><use href="#i-plus"/></svg></summary><div><p>Adres i&nbsp;powierzchnia nieruchomości oraz podstawowe informacje techniczne: sposób ogrzewania i&nbsp;przygotowania ciepłej wody, rodzaj wentylacji i&nbsp;ścian. Po zamówieniu powiemy dokładnie, czego potrzebujemy.</p><p>Nie musisz ich szukać. Dane od spółdzielni, wspólnoty lub zarządcy zdobywamy sami, w&nbsp;cenie świadectwa.</p></div></details>
         <details><summary>Jak długo ważne jest świadectwo?<svg class="ico"><use href="#i-plus"/></svg></summary><div><p>10 lat od sporządzenia, o&nbsp;ile w&nbsp;tym czasie nie zmienisz istotnie charakterystyki energetycznej budynku, np. przez termomodernizację.</p></div></details>
@@ -805,7 +854,7 @@ b,strong{font-weight:400;color:var(--ink)}
   <div class="wrap ftr__in">
     <div><b>RW PROJEKT Sp. z&nbsp;o.o.</b>ul. Świętego Jerzego 43/2<br>15-349 Białystok</div>
     <div><b>Kontakt</b><a class="js-tel" href="tel:+48881011991">881 011 991</a><br><a class="js-tel js-tel2" href="tel:+48666308098">666 308 098</a><br><a href="mailto:kontakt@rwprojekt.com.pl">kontakt@rwprojekt.com.pl</a></div>
-    <div><b>Informacje</b><a href="https://www.rwprojekt.com.pl/polityka-prywatnosci/">Polityka prywatności</a><br><a href="https://www.rwprojekt.com.pl/regulamin-sklepu/">Regulamin</a><br><a href="https://www.rwprojekt.com.pl/">rwprojekt.com.pl</a></div>
+    <div><b>Informacje</b><a href="https://www.rwprojekt.com.pl/polityka-prywatnosci/">Polityka prywatności</a><br><a href="https://www.rwprojekt.com.pl/regulamin-sklepu/">Regulamin</a><br><button type="button" class="ftr__cmp" data-cmp-open>Ustawienia cookies</button><br><a href="https://www.rwprojekt.com.pl/">rwprojekt.com.pl</a></div>
   </div>
 </footer>
 
@@ -813,6 +862,22 @@ b,strong{font-weight:400;color:var(--ink)}
   <div class="sbar__p"><strong class="js-total">149 zł</strong><span class="js-sbar-label">mieszkanie, cena z&nbsp;VAT</span></div>
   <a class="sbar__tel js-tel" href="tel:+48881011991" aria-label="Zadzwoń" tabindex="-1"><svg class="ico"><use href="#i-phone"/></svg></a>
   <a class="btn btn--primary" href="#zamow" tabindex="-1">Zamów</a>
+</div>
+
+<div class="cmp" id="cmp" role="dialog" aria-labelledby="cmpT" aria-describedby="cmpD" hidden>
+  <p class="cmp__t" id="cmpT">Pliki cookies</p>
+  <p id="cmpD">Niezbędne cookies zapewniają działanie strony. Za Twoją zgodą użyjemy też analitycznych i&nbsp;marketingowych (Google), żeby mierzyć skuteczność reklam. Zgodę zmienisz w&nbsp;stopce. Szczegóły w&nbsp;<a href="https://www.rwprojekt.com.pl/polityka-prywatnosci/" target="_blank" rel="noopener">polityce prywatności</a>.</p>
+  <div class="cmp__cats" id="cmpCats" hidden>
+    <label class="cmp__cat"><input type="checkbox" checked disabled><span><b>Niezbędne</b>Działanie strony i&nbsp;formularza. Zawsze włączone.</span></label>
+    <label class="cmp__cat"><input type="checkbox" id="cmpA"><span><b>Analityczne</b>Statystyki odwiedzin (Google Analytics).</span></label>
+    <label class="cmp__cat"><input type="checkbox" id="cmpM"><span><b>Marketingowe</b>Pomiar skuteczności i&nbsp;dopasowanie reklam (Google Ads).</span></label>
+  </div>
+  <div class="cmp__btns">
+    <button type="button" class="btn btn--ghost" data-cmp="none">Odrzucam</button>
+    <button type="button" class="btn btn--primary" data-cmp="all">Akceptuję</button>
+    <button type="button" class="cmp__more" data-cmp="more" aria-expanded="false" aria-controls="cmpCats">Ustawienia</button>
+    <button type="button" class="btn btn--primary" data-cmp="save" hidden style="grid-column:1/-1">Zapisz wybór</button>
+  </div>
 </div>
 
 <script>
@@ -838,7 +903,7 @@ var CONFIG = {
 var EXTRAS = { paper: 20, docs: 50 };
 var PRICING = {
   mieszkanie: { label:'Mieszkanie', base:149, regular:190,
-    area:[{v:'do 70 m²',p:0},{v:'powyżej 70 m²',p:50}],
+    area:[{v:'do 80 m²',p:0},{v:'powyżej 80 m²',p:50}],
     speed:[{v:'Standard',s:'1 dzień roboczy',p:0},{v:'Ekspres',s:'12 h',p:49},{v:'Ekspres',s:'6 h',p:99}] },
   dom: { label:'Dom', base:299, regular:390,
     area:[{v:'do 150 m²',p:0},{v:'150-250 m²',p:60},{v:'250-400 m²',p:120},{v:'powyżej 400 m²',p:null}],
@@ -1001,7 +1066,7 @@ var PRICING = {
   function check(f){
     var inp = f.querySelector('input'), kind = f.dataset.req, v = (inp.value||'').trim(), ok = true;
     if (kind === 'tel') ok = v.replace(/\D/g,'').length >= 9;
-    else if (kind === 'email') ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+    else if (kind === 'email-opt') ok = !v || /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
     else if (kind === 'text') ok = v.length >= 2;
     else if (kind === 'consent') ok = inp.checked;
     f.classList.toggle('bad', !ok); inp.setAttribute('aria-invalid', ok ? 'false' : 'true');
@@ -1027,7 +1092,7 @@ var PRICING = {
       rodzaj: c.t.label, metraz: c.a.v, termin: c.s.v + ' ' + c.s.s,
       brak_dokumentacji: inv.checked ? 'tak (+' + EXTRAS.docs + ' zł)' : 'nie',
       papier: paper.checked ? 'tak (+' + EXTRAS.paper + ' zł)' : 'nie',
-      promocja: promo ? 'tak, do 31.12.2026' : 'nie',
+      promocja: promo ? 'tak, do 31.12.2026' : 'nie', wariant: window.RW_TYP === 'dom' ? 'dom (?typ=dom)' : 'mieszkanie',
       cena: (c.custom ? 'od ' : '') + c.total + ' zł',
       imie: form.imie.value.trim(), telefon: form.telefon.value.trim(), email: form.email.value.trim(),
       miejscowosc: form.miejscowosc.value.trim(), uwagi: form.uwagi.value.trim(),
@@ -1039,7 +1104,7 @@ var PRICING = {
 
     function done(){
       dl.push({ event:'generate_lead', lead_type:'zamowienie_swiadectwa', value:c.total, currency:'PLN', rodzaj:c.t.label, termin:c.s.v,
-        user_data:{ email:data.email, phone_number:'+48' + data.telefon.replace(/\D/g,'').slice(-9) } });
+        landing_variant:window.RW_TYP, user_data: data.email ? { email:data.email, phone_number:'+48' + data.telefon.replace(/\D/g,'').slice(-9) } : { phone_number:'+48' + data.telefon.replace(/\D/g,'').slice(-9) } });
       document.getElementById('orderPanel').classList.add('done');
       document.getElementById('orderPanel').scrollIntoView({ behavior:'smooth', block:'center' });
     }
@@ -1078,6 +1143,7 @@ var PRICING = {
     io.observe(hero); io.observe(zam);
   }
 
+  if (window.RW_TYP === 'dom') document.getElementById('t-d').checked = true;
   build();
 })();
 /* opinie: zwijanie */
@@ -1088,6 +1154,23 @@ b.addEventListener('click',function(){var open=w.classList.contains('is-collapse
 if(open&&!rm){w.style.maxHeight=w.offsetHeight+'px';w.classList.add('is-anim');w.classList.remove('is-collapsed');void w.offsetHeight;w.style.maxHeight=w.scrollHeight+'px';setTimeout(done,500);}
 else{done();w.classList.toggle('is-collapsed',!open);}
 b.setAttribute('aria-expanded',open);b.textContent=open?'Zwiń opinie':'Zobacz więcej opinii';if(!open)w.scrollIntoView({block:'start'});});})();
+/* baner zgód: zapis w ciasteczku rw_consent na rok, aktualizacja Consent Mode v2 i zdarzenie consent_update dla GTM */
+(function(){var b=document.getElementById('cmp');if(!b)return;
+var cats=document.getElementById('cmpCats'),ca=document.getElementById('cmpA'),cm=document.getElementById('cmpM'),
+more=b.querySelector('[data-cmp="more"]'),sv=b.querySelector('[data-cmp="save"]');
+function g(x){return x?'granted':'denied';}
+function save(a,m){
+  document.cookie='rw_consent=a'+(a?1:0)+'m'+(m?1:0)+';max-age=31536000;path=/;SameSite=Lax'+(location.protocol==='https:'?';Secure':'');
+  window.RW_CONSENT={a:!!a,m:!!m};
+  gtag('consent','update',{analytics_storage:g(a),ad_storage:g(m),ad_user_data:g(m),ad_personalization:g(m)});
+  (window.dataLayer=window.dataLayer||[]).push({event:'consent_update',consent_analytics:g(a),consent_marketing:g(m)});
+  b.hidden=true;}
+function open(full){var c=window.RW_CONSENT||{a:false,m:false};ca.checked=c.a;cm.checked=c.m;
+  cats.hidden=!full;more.hidden=!!full;sv.hidden=!full;more.setAttribute('aria-expanded',full?'true':'false');b.hidden=false;}
+b.addEventListener('click',function(e){var t=e.target.closest('[data-cmp]');if(!t)return;var k=t.dataset.cmp;
+  if(k==='all')save(1,1);else if(k==='none')save(0,0);else if(k==='save')save(ca.checked,cm.checked);else if(k==='more')open(true);});
+document.querySelectorAll('[data-cmp-open]').forEach(function(x){x.addEventListener('click',function(){open(true);});});
+if(!window.RW_CONSENT)open(false);})();
 </script>
 </body>
 </html>
