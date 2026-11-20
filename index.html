@@ -31,6 +31,9 @@ window.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});
 window.addEventListener('load',function(){setTimeout(function(){var j=document.createElement('script');j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id=GTM-57W8V9WW';document.head.appendChild(j);},300);});</script>
 
 <style>
+/* zastępcze czcionki o szerokości docelowych (zmierzone 20.11): tekst łamie się tak samo przed i po wczytaniu, bez skoku układu */
+@font-face{font-family:"TTLakes Fallback";src:local("Arial"),local("ArialMT"),local("Roboto"),local("Helvetica");size-adjust:127.5%}
+@font-face{font-family:"Lexend Fallback";src:local("Arial"),local("ArialMT"),local("Roboto"),local("Helvetica");size-adjust:108.5%}
 @font-face{font-family:"TTLakes";font-style:normal;font-weight:400 700;font-display:swap;src:url(fonts/ttlakes-ext-medium.woff) format("woff")}
 @font-face{font-family:"Lexend";font-style:normal;font-weight:400 700;font-display:swap;src:url(fonts/lexend-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:"Lexend";font-style:normal;font-weight:400 700;font-display:swap;src:url(fonts/lexend-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
@@ -43,7 +46,7 @@ window.addEventListener('load',function(){setTimeout(function(){var j=document.c
   --r:16px; --r-s:10px;
   --pad:16px; --max:1180px;
   --shadow:0 1px 2px rgba(20,33,26,.06),0 8px 24px rgba(20,33,26,.08);
-  --f:"Lexend",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif; --fh:"TTLakes",system-ui,sans-serif;
+  --f:"Lexend","Lexend Fallback",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif; --fh:"TTLakes","TTLakes Fallback",system-ui,sans-serif;
 }
 @media (min-width:768px){:root{--pad:32px}}
 *{box-sizing:border-box}
