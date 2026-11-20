@@ -12,11 +12,11 @@
 <link rel="preload" href="fonts/ttlakes-ext-medium.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="fonts/lexend-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/lexend-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
-<!-- Wariant pod grupę reklam: domyślnie mieszkanie, ?typ=dom = dom (nagłówek, cena, zdjęcie, kalkulator).
+<!-- Wariant pod grupę reklam: domyślnie mieszkanie, ?typ=dom = dom (nagłówek, cena, kalkulator). Zdjęcie hero zawsze blok.
      Klasa na <html> ustawiona przed CSS, więc nie ma mignięcia; preload tylko zdjęcia dla danego wariantu. -->
 <script>(function(){var t=/[?&]typ=dom(&|#|$)/i.test(location.search)?'dom':'mieszkanie';window.RW_TYP=t;document.documentElement.className+=' typ-'+t;
-var H={mieszkanie:{d:'img/hero-blok-1280.webp?v=12 1280w, img/hero-blok-1920.webp?v=12 1920w, img/hero-blok-2560.webp?v=12 2560w',m:'img/hero-blok-m-600.webp?v=12 600w, img/hero-blok-m-900.webp?v=12 900w'},
-dom:{d:'img/hero-dom-1280.webp?v=12 1280w, img/hero-dom-1920.webp?v=12 1920w, img/hero-dom-2560.webp?v=12 2560w',m:'img/hero-dom-m-600.webp?v=12 600w, img/hero-dom-m-900.webp?v=12 900w'}}[t];window.RW_HERO=H;
+var H={mieszkanie:{d:'img/hero-blok-1280.webp?v=12 1280w, img/hero-blok-1920.webp?v=12 1920w, img/hero-blok-2560.webp?v=12 2560w',m:'img/hero-blok-m-600.webp?v=12 600w, img/hero-blok-m-900.webp?v=12 900w'}
+}.mieszkanie; /* hero zawsze z blokiem (wymóg klienta 20.11), wariant dom zmienia tylko nagłówek, cenę i kalkulator */window.RW_HERO=H;
 [[H.d,'(min-width:960px)'],[H.m,'(max-width:959px)']].forEach(function(x){var l=document.createElement('link');l.rel='preload';l.as='image';l.setAttribute('imagesrcset',x[0]);l.setAttribute('imagesizes','100vw');l.media=x[1];l.setAttribute('fetchpriority','high');document.head.appendChild(l);});
 if(t==='dom')document.title='Świadectwo energetyczne domu od 299 zł, promocja do 31.12 | RW Projekt';})();</script>
 
